@@ -7,7 +7,52 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="FileExport.Csv" Version="2.0.0" />
+    <PackageReference Include="FileExport.Excel" Version="2.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="6.0.5" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="Volo.Abp.Account.Application" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Account.HttpApi" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Account.Web.OpenIddict" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.AspNetCore.Serilog" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.AuditLogging.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.AutoMapper" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.Web" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Identity.Application" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Identity.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Identity.Web" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.OpenIddict.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.Identity" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.Domain.OpenIddict" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.SettingManagement.Web" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.Swashbuckle" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Application" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.TenantManagement.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi" Version="6.0.3" />
+    <PackageReference Include="Volo.Abp.TenantManagement.Web" Version="6.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
