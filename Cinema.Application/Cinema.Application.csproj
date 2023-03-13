@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Volo.Abp.Account.Application" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.Identity.Application" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Application" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Application" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Application" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Application" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Cinema.Application.Contracts\Cinema.Application.Contracts.csproj" />
+	  <ProjectReference Include="..\Cinema.Domain\Cinema.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
