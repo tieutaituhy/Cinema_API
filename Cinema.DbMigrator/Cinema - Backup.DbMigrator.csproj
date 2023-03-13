@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="Serilog.Sinks.Async" Version="1.5.0" />
+		<PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.0" />
+	</ItemGroup>
+	
+
+<ItemGroup>
+		<PackageReference Include="Volo.Abp.Autofac" Version="7.0.0" />
+		<ProjectReference Include="..\TodoApp.Application.Contracts\TodoApp.Application.Contracts.csproj" />		<ProjectReference Include="..\TodoApp.EntityFrameworkCore\TodoApp.EntityFrameworkCore.csproj" />
+	<ItemGroup>
+    <PackageReference Include="Volo.Abp.Autofac" Version="7.0.0" />
+    <ProjectReference Include="..\TodoApp.Application.Contracts\TodoApp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\TodoApp.EntityFrameworkCore\TodoApp.EntityFrameworkCore.csproj" />
+  </ItemGroup>	<ItemGroup>
+	  <ProjectReference Include="..\Cinema.Application.Contracts\Cinema.Application.Contracts.csproj" />
+	  <ProjectReference Include="..\Cinema.EntityFrameworkCore\Cinema.EntityFrameworkCore.csproj" />
+	</ItemGroup>
+	
+<ItemGroup>
+    <PackageReference Include="Volo.Abp.Autofac" Version="7.0.0" />
+    <ProjectReference Include="..\TodoApp.Application.Contracts\TodoApp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\TodoApp.EntityFrameworkCore\TodoApp.EntityFrameworkCore.csproj" />
+  </ItemGroup>	
+<ItemGroup>
+    <PackageReference Include="Volo.Abp.Autofac" Version="7.0.0" />
+    <ProjectReference Include="..\TodoApp.Application.Contracts\TodoApp.Application.Contracts.csproj" />
+    <ProjectReference Include="..\TodoApp.EntityFrameworkCore\TodoApp.EntityFrameworkCore.csproj" />
+  		<PackageReference Include="Volo.Abp.Autofac" Version="7.0.0" />
+		<ProjectReference Include="..\TodoApp.Application.Contracts\TodoApp.Application.Contracts.csproj" />
+		<ProjectReference Include="..\TodoApp.EntityFrameworkCore\TodoApp.EntityFrameworkCore.csproj" />
+	
+</Project>

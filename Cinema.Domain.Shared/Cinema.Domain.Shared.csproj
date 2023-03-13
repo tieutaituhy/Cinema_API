@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="JetBrains.Annotations" Version="2022.3.1" />
+		<PackageReference Include="Volo.Abp.Identity.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.BackgroundJobs.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.AuditLogging.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.TenantManagement.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.FeatureManagement.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.PermissionManagement.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.SettingManagement.Domain.Shared" Version="6.0.0" />
+		<PackageReference Include="Volo.Abp.OpenIddict.Domain.Shared" Version="6.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="7.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<EmbeddedResource Include="Localization\Cinema\*.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Localization\Cinema\ar.json" />
+	  <None Remove="Localization\Cinema\cs.json" />
+	  <None Remove="Localization\Cinema\de.json" />
+	  <None Remove="Localization\Cinema\en-GB.json" />
+	  <None Remove="Localization\Cinema\en.json" />
+	  <None Remove="Localization\Cinema\es.json" />
+	  <None Remove="Localization\Cinema\fi.json" />
+	  <None Remove="Localization\Cinema\fr.json" />
+	  <None Remove="Localization\Cinema\hi.json" />
+	  <None Remove="Localization\Cinema\hu.json" />
+	  <None Remove="Localization\Cinema\is.json" />
+	  <None Remove="Localization\Cinema\it.json" />
+	  <None Remove="Localization\Cinema\nl.json" />
+	  <None Remove="Localization\Cinema\pl-PL.json" />
+	  <None Remove="Localization\Cinema\pt-BR.json" />
+	  <None Remove="Localization\Cinema\ro-RO.json" />
+	  <None Remove="Localization\Cinema\ru.json" />
+	  <None Remove="Localization\Cinema\sk.json" />
+	  <None Remove="Localization\Cinema\sl.json" />
+	  <None Remove="Localization\Cinema\tr.json" />
+	  <None Remove="Localization\Cinema\vi.json" />
+	  <None Remove="Localization\Cinema\zh-Hans.json" />
+	  <None Remove="Localization\Cinema\zh-Hant.json" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Helper\" />
+	</ItemGroup>
+
+</Project>
