@@ -1,6 +1,6 @@
 ﻿using JetBrains.Annotations;
 
-namespace X.PagedList;
+namespace Cinema.Domain.Shared.Helper.BaseList;
 
 ///<summary>
 /// Non-enumerable version of the PagedList class.

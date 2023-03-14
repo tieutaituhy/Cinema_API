@@ -1,59 +1,70 @@
-﻿using Cinema.Application.Contracts.DTO.Employees;
+﻿using Cinema.Application.Contracts.InterfaceService.Employees;
+using Cinema.Application.Contracts.Request.Employees;
+using Cinema.Domain.IRepository.Employees;
 using Cinema_API.Data.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Volo.Abp.Application.Services;
+using Microsoft.AspNetCore.Mvc;
 using Volo.Abp.Domain.Repositories;
 
 namespace Cinema.Application.Service.Employees
 {
-    public class EmployeeService : ApplicationService, IEmployeeService
+    [Route("api/app/Lead/[action]")]
+    public class EmployeeService : CinemaAppService, IEmployeeService
     {
         private readonly IRepository<Employee, Guid> _todoItemRepository;
+        private readonly IEmployeeRepository _employeeRepository;
 
-        public EmployeeService(IRepository<Employee, Guid> todoItemRepository)
+
+        public EmployeeService(
+            IRepository<Employee, Guid> todoItemRepository,
+            IEmployeeRepository employeeRepository
+            )
         {
             _todoItemRepository = todoItemRepository;
+            _employeeRepository = employeeRepository;
         }
         // TODO: Implement the methods here...
-        public async Task<List<EmployeeDTO>> GetListAsync()
+        [HttpGet]
+        public async Task<IActionResult> GetListEmployeeAsync()
         {
-            var items = await _todoItemRepository.GetListAsync();
-            return items
-                .Select(item => new EmployeeDTO
-                {
-                    Id = item.Id,
-                    Address = item.Address,
-                    DateOfBirth = item.DateOfBirth,
-                    FullName = item.FullName,
-                    PhoneNumber = item.PhoneNumber,
-                    Gender = item.Gender
-                }).ToList();
+            //var items = await _todoItemRepository.GetListAsync();
+            //return items
+            //    .Select(item => new EmployeeDTO
+            //    {
+            //        Id = item.Id,
+            //        Address = item.Address,
+            //        DateOfBirth = item.DateOfBirth,
+            //        FullName = item.FullName,
+            //        PhoneNumber = item.PhoneNumber,
+            //        Gender = item.Gender
+            //    }).ToList();
+            var result = await _employeeRepository.GetListAsync();
+            return result;
         }
-        public async Task<EmployeeDTO> CreateAsync(EmployeeDTO text)
+        [HttpPost]
+        public async Task<IActionResult> CreateEmployeeAsync(CreateEmployeeRequest request)
         {
-            var item = await _todoItemRepository.InsertAsync(
-                new Employee { Address = text.Address, 
-                    FullName = text.FullName, 
-                    DateOfBirth = text.DateOfBirth,
-                    PhoneNumber = text.PhoneNumber,
-                    Gender = text.Gender}
-            );
+            //    var item = await _todoItemRepository.InsertAsync(
+            //        new Employee { Address = text.Address, 
+            //            FullName = text.FullName, 
+            //            DateOfBirth = text.DateOfBirth,
+            //            PhoneNumber = text.PhoneNumber,
+            //            Gender = text.Gender}
+            //    );
 
-            return new EmployeeDTO
-            {
-                Id = item.Id,
-                Address = item.Address,
-                DateOfBirth = item.DateOfBirth,
-                FullName = item.FullName,
-                PhoneNumber = item.PhoneNumber,
-                Gender = item.Gender
-            };
+            //    return new EmployeeDTO
+            //    {
+            //        Id = item.Id,
+            //        Address = item.Address,
+            //        DateOfBirth = item.DateOfBirth,
+            //        FullName = item.FullName,
+            //        PhoneNumber = item.PhoneNumber,
+            //        Gender = item.Gender
+            //    };
+            var result = await _employeeRepository.CreateAsync(request);
+            return result;
         }
-        public async Task DeleteAsync(Guid id)
+        [HttpDelete]
+        public async Task DeleteEmployeeAsync(Guid id)
         {
             await _todoItemRepository.DeleteAsync(id);
         }

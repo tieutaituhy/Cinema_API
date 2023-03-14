@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cinema.Application.Contracts\Cinema.Application.Contracts.csproj" />
     <ProjectReference Include="..\Cinema.Domain.Shared\Cinema.Domain.Shared.csproj" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using Volo.Abp.Domain.Entities;
+﻿using Cinema.Domain.Shared.Enum;
+using Volo.Abp.Domain.Entities;
 
 namespace Cinema_API.Data.Entity
 {
@@ -14,5 +15,4 @@ namespace Cinema_API.Data.Entity
 
         public virtual ICollection<Ticket> Tickets { get; set; }
     }
-    public enum Gender { Male = 0, female = 1, other = 2 }
 }
