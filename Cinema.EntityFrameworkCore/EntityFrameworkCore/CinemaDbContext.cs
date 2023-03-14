@@ -79,5 +79,10 @@ ITenantManagementDbContext
         {
             b.ToTable("CinemaRooms");
         });
+        builder.Entity<Employee>(b =>
+        {
+            b.Property(x => x.Id).HasDefaultValueSql("NEWID()");
+            b.Property(x => x.DateOfBirth).HasDefaultValueSql("GETDATE()");
+        });
     }
 }
