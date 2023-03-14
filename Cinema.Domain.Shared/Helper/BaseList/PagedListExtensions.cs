@@ -1,12 +1,8 @@
-﻿using JetBrains.Annotations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Cinema.Domain.Shared.Helper.BaseList;
+using JetBrains.Annotations;
 using System.Linq.Expressions;
-using System.Threading;
-using System.Threading.Tasks;
 
-namespace X.PagedList;
+namespace Cinema.Domain.Shared.Helper.BaseList;
 
 /// <summary>
 /// Container for extension methods designed to simplify the creation of instances of <see cref="PagedList{T}"/>.
@@ -137,9 +133,9 @@ public static class PagedListExtensions
             if (totalCount > 0)
             {
                 subset.AddRange(
-                    (pageNumber == 1)
+                    pageNumber == 1
                         ? superset.Skip(0).Take(pageSize)
-                        : superset.Skip(((pageNumber - 1) * pageSize)).Take(pageSize)
+                        : superset.Skip((pageNumber - 1) * pageSize).Take(pageSize)
                 );
             }
         }
@@ -178,7 +174,7 @@ public static class PagedListExtensions
     public static IPagedList<TResult> Select<TSource, TResult>(this IPagedList<TSource> source, Func<TSource, TResult> selector)
     {
         var subset = ((IEnumerable<TSource>)source).Select(selector);
-        
+
         return new PagedList<TResult>(source, subset);
     }
 
@@ -244,7 +240,7 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<List<T>> ToListAsync<T>(this IEnumerable<T> superset)
     {
-        return await ToListAsync(superset, CancellationToken.None);
+        return await superset.ToListAsync(CancellationToken.None);
     }
 
     /// <summary>
@@ -317,9 +313,9 @@ public static class PagedListExtensions
             if (totalCount > 0)
             {
                 subset.AddRange(
-                    (pageNumber == 1)
+                    pageNumber == 1
                         ? await superset.Skip(0).Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false)
-                        : await superset.Skip(((pageNumber - 1) * pageSize)).Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false)
+                        : await superset.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync(cancellationToken).ConfigureAwait(false)
                 );
             }
         }
@@ -348,7 +344,7 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<IPagedList<T>> ToPagedListAsync<T>(this IQueryable<T> superset, int pageNumber, int pageSize, int? totalSetCount = null)
     {
-        return await ToPagedListAsync(AsQueryable(superset), pageNumber, pageSize, totalSetCount, CancellationToken.None);
+        return await AsQueryable(superset).ToPagedListAsync(pageNumber, pageSize, totalSetCount, CancellationToken.None);
     }
 
     /// <summary>
@@ -373,7 +369,7 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<IPagedList<T>> ToPagedListAsync<T>(this IEnumerable<T> superset, int pageNumber, int pageSize, CancellationToken cancellationToken, int? totalSetCount = null)
     {
-        return await ToPagedListAsync(AsQueryable(superset), pageNumber, pageSize, totalSetCount, cancellationToken);
+        return await AsQueryable(superset).ToPagedListAsync(pageNumber, pageSize, totalSetCount, cancellationToken);
     }
 
     /// <summary>
@@ -397,7 +393,7 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<IPagedList<T>> ToPagedListAsync<T>(this IEnumerable<T> superset, int pageNumber, int pageSize, int? totalSetCount = null)
     {
-        return await ToPagedListAsync(AsQueryable(superset), pageNumber, pageSize, totalSetCount, CancellationToken.None);
+        return await AsQueryable(superset).ToPagedListAsync(pageNumber, pageSize, totalSetCount, CancellationToken.None);
     }
 
     /// <summary>
@@ -419,7 +415,7 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<IPagedList<T>> ToPagedListAsync<T>(this IQueryable<T> superset, int? pageNumber, int pageSize, CancellationToken cancellationToken, int? totalSetCount = null)
     {
-        return await ToPagedListAsync(AsQueryable(superset), pageNumber ?? 1, pageSize, totalSetCount, cancellationToken);
+        return await AsQueryable(superset).ToPagedListAsync(pageNumber ?? 1, pageSize, totalSetCount, cancellationToken);
     }
 
     /// <summary>
@@ -442,14 +438,14 @@ public static class PagedListExtensions
     /// <seealso cref="PagedList{T}"/>
     public static async Task<IPagedList<T>> ToPagedListAsync<T>(this IQueryable<T> superset, int? pageNumber, int pageSize, int? totalSetCount = null)
     {
-        return await ToPagedListAsync(AsQueryable(superset), pageNumber ?? 1, pageSize, totalSetCount, CancellationToken.None);
+        return await AsQueryable(superset).ToPagedListAsync(pageNumber ?? 1, pageSize, totalSetCount, CancellationToken.None);
     }
 
     private static IQueryable<T> AsQueryable<T>(IQueryable<T> superset)
     {
         return superset ?? new EnumerableQuery<T>(new List<T>());
     }
-    
+
     private static IQueryable<T> AsQueryable<T>(IEnumerable<T> superset)
     {
         return superset == null ? new EnumerableQuery<T>(new List<T>()) : superset.AsQueryable();

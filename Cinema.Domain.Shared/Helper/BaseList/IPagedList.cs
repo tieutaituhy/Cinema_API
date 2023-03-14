@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using System.Collections.Generic;
 
-namespace X.PagedList;
+namespace Cinema.Domain.Shared.Helper.BaseList;
 
 /// <summary>
 /// Represents a subset of a collection of objects that can be individually accessed by index and containing

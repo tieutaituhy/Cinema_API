@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace X.PagedList;
+namespace Cinema.Domain.Shared.Helper.BaseList;
 
 /// <summary>
 /// Represents a subset of a collection of objects that can be individually accessed by index and containing
@@ -75,9 +75,9 @@ public abstract class BasePagedList<T> : PagedListMetaData, IPagedList<T>
         var numberOfLastItemOnPage = numberOfFirstItemOnPage + PageSize - 1;
 
         LastItemOnPage = pageNumberIsGood
-            ? (numberOfLastItemOnPage > TotalItemCount
+            ? numberOfLastItemOnPage > TotalItemCount
                 ? TotalItemCount
-                : numberOfLastItemOnPage)
+                : numberOfLastItemOnPage
             : 0;
     }
 

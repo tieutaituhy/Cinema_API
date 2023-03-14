@@ -1,13 +1,13 @@
-﻿using Cinema_API.Data.Entity;
+﻿using Cinema.Domain.Shared.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cinema.Application.Contracts.DTO.Employees
+namespace Cinema.Application.Contracts.Request.Employees
 {
-    public class EmployeeDTO
+    public class EmployeeRequest
     {
         public Guid Id { get; set; }
         public string FullName { get; set; } = string.Empty;
