@@ -3,14 +3,8 @@ using Cinema.Domain.IRepository.Employees;
 using Cinema.Domain.Shared.Helper;
 using Cinema.EntityFrameworkCore.EntityFrameworkCore;
 using Cinema_API.Data.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Volo.Abp.Domain.Repositories.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Cinema.EntityFrameworkCore.EfCoreRepository.Employees
 {
